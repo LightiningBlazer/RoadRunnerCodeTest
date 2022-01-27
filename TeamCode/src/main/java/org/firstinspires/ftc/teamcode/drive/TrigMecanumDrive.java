@@ -2,23 +2,24 @@ package org.firstinspires.ftc.teamcode.drive;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 
 @TeleOp(name = "TrigMecanumDrive")
 public class TrigMecanumDrive extends OpMode {
 
-    DcMotor RFMotor;
-    DcMotor LFMotor;
-    DcMotor RBMotor;
-    DcMotor LBMotor;
+    DcMotorEx RFMotor;
+    DcMotorEx LFMotor;
+    DcMotorEx RBMotor;
+    DcMotorEx LBMotor;
 
     @Override
     public void init(){
-        LFMotor = hardwareMap.dcMotor.get("LFMotor");
-        RFMotor = hardwareMap.dcMotor.get("RFMotor");
-        LBMotor = hardwareMap.dcMotor.get("LBMotor");
-        RBMotor = hardwareMap.dcMotor.get("RBMotor");
+        LFMotor = (DcMotorEx) hardwareMap.dcMotor.get("LFMotor");
+        RFMotor = (DcMotorEx) hardwareMap.dcMotor.get("RFMotor");
+        LBMotor = (DcMotorEx) hardwareMap.dcMotor.get("LBMotor");
+        RBMotor = (DcMotorEx) hardwareMap.dcMotor.get("LBMotor");
     }
 
     @Override
@@ -32,10 +33,11 @@ public class TrigMecanumDrive extends OpMode {
         double sinAngleRadians = Math.sin(stickAngleRadians);
         double cosAngleRadians = Math.cos(stickAngleRadians);
         double factor = 1 / Math.max(Math.abs(sinAngleRadians), Math.abs(cosAngleRadians));
-        LFMotor.setPower(wheelPower * cosAngleRadians * factor + turn);
-        RFMotor.setPower(wheelPower * sinAngleRadians * factor - turn);
-        LBMotor.setPower(wheelPower * sinAngleRadians * factor + turn);
-        RBMotor.setPower(wheelPower * cosAngleRadians * factor - turn);
+        LFMotor.setVelocity((wheelPower * cosAngleRadians * factor + turn) * 537.7);
+        RFMotor.setVelocity((wheelPower * sinAngleRadians * factor - turn) * 537.7);
+        LBMotor.setVelocity((wheelPower * sinAngleRadians * factor + turn) * 537.7);
+        RBMotor.setVelocity((wheelPower * cosAngleRadians * factor - turn) * 537.7);
     }
 }
 //Find Ticks Per Motor Rotation and Multiply the internal Power Value by that to Switch it to Velocity
+//Easy to fix if it doesnt work dont have motor inverts for our current robot
