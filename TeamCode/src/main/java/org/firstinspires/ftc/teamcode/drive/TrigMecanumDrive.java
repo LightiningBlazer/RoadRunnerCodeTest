@@ -5,7 +5,6 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-
 @TeleOp(name = "TrigMecanumDrive")
 public class TrigMecanumDrive extends OpMode {
 
@@ -20,6 +19,8 @@ public class TrigMecanumDrive extends OpMode {
         RFMotor = (DcMotorEx) hardwareMap.dcMotor.get("RFMotor");
         LBMotor = (DcMotorEx) hardwareMap.dcMotor.get("LBMotor");
         RBMotor = (DcMotorEx) hardwareMap.dcMotor.get("LBMotor");
+        LBMotor.setDirection(DcMotorEx.Direction.REVERSE);
+        LFMotor.setDirection(DcMotorEx.Direction.REVERSE);
     }
 
     @Override
