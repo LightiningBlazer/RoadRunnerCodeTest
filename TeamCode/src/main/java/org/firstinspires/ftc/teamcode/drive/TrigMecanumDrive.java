@@ -22,7 +22,7 @@ public class TrigMecanumDrive extends OpMode {
         LBMotor.setDirection(DcMotorEx.Direction.REVERSE);
         LFMotor.setDirection(DcMotorEx.Direction.REVERSE);
     }
-    //hi
+
     @Override
     public void loop(){
         double lateral = gamepad1.left_stick_x;
