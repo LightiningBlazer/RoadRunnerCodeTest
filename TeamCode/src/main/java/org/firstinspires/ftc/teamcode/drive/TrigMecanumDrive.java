@@ -30,7 +30,7 @@ public class TrigMecanumDrive extends OpMode {
         double turn = gamepad1.right_stick_x;
         double wheelPower = Math.hypot(lateral, longitudinal);
         double stickAngleRadians = Math.atan2(longitudinal, lateral);
-        stickAngleRadians = stickAngleRadians - Math.PI/4;
+        stickAngleRadians = stickAngleRadians - (Math.PI / 4);
         double sinAngleRadians = Math.sin(stickAngleRadians);
         double cosAngleRadians = Math.cos(stickAngleRadians);
         double factor = 1 / Math.max(Math.abs(sinAngleRadians), Math.abs(cosAngleRadians));
