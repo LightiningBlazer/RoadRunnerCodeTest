@@ -21,7 +21,7 @@ public class TmdWithArmTemp extends OpMode {
         LFMotor = (DcMotorEx) hardwareMap.dcMotor.get("LFMotor");
         RFMotor = (DcMotorEx) hardwareMap.dcMotor.get("RFMotor");
         LBMotor = (DcMotorEx) hardwareMap.dcMotor.get("LBMotor");
-        RBMotor = (DcMotorEx) hardwareMap.dcMotor.get("LBMotor");
+        RBMotor = (DcMotorEx) hardwareMap.dcMotor.get("RBMotor");
         AngleMotor = (DcMotorEx) hardwareMap.dcMotor.get("AngleMotor");
         ExtensionMotor = (DcMotorEx) hardwareMap.dcMotor.get("ExtensionMotor");
 
