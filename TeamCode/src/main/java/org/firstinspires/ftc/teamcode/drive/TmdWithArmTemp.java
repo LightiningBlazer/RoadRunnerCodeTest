@@ -72,6 +72,7 @@ public class TmdWithArmTemp extends OpMode {
         if(gamepad1.b){
             int AngNew = AngOld - 100;
             AngOld = AngNew;
+            telemetry.addData("hi:", AngOld);
             while (AngNew - 50 < AngleMotor.getCurrentPosition() && AngNew + 50 > AngleMotor.getCurrentPosition()) {
                 if (AngNew - 50 < AngleMotor.getCurrentPosition()) {
                     AngleMotor.setVelocity(-200);
